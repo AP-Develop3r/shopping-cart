@@ -1,25 +1,45 @@
 <template>
     <el-row justify="center">
         <el-card :body-style="{ padding: '0px' }">
-            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                class="image" />
-            <div style="padding: 14px">
-                <span>Yummy hamburger</span>
-                <div class="bottom">
-                    <time class="time">{{ currentDate }}</time>
-                    <el-button text class="button"><el-icon><Plus /></el-icon></el-button>
-                </div>
-            </div>
+            <img :src="props.data.url"
+                class="image w-64 h-64 p-4" />
+            <el-row class="row-bg my-2" justify="center">
+                <span>{{ props.data.name }}</span>
+            </el-row>
+            <el-row class="flex justify-between m-4" justify="space-between">
+                <div>$ {{ props.data.price }}</div>
+                <el-icon class="cursor-pointer" @click="addProduct(props.data)">
+                    <Plus />
+                </el-icon>
+            </el-row>
         </el-card>
-
     </el-row>
 </template>
 
 <script lang="ts" setup>
+// Vue
+import { defineProps } from "vue";
 // Interface
-import { card } from "./interface/card";
+import { product } from "./interface/card";
 // Icons
 import { Plus } from "@element-plus/icons-vue";
+// Store
+import { cardStore } from "../../store/store";
+
+
+// Props
+const props = defineProps<{
+    data: product;
+}>();
+
+// Store
+const shoppingCart = cardStore();
+
+const addProduct = (item: product): void => {
+    shoppingCart.setProduct(item)
+}
+
+
 </script>
 
 <style></style>

@@ -1,5 +1,6 @@
-export interface card {
+export interface product {
+    id: number
     name: string;
     price: number;
-    img: string;  
+    url: object | string |any;  
 }

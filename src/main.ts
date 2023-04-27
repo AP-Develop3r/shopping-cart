@@ -2,6 +2,7 @@ import { createApp, markRaw } from 'vue'
 import ElementPlus from "element-plus";
 import "element-plus/theme-chalk/index.css";
 import App from './App.vue'
+import './index.css'
 
 // Router
 import router from "./router/router"
@@ -15,5 +16,6 @@ pinia.use(({ store }) => {
 
 createApp(App)
     .use(router)
+    .use(pinia)
     .use(ElementPlus)
     .mount('#app')
