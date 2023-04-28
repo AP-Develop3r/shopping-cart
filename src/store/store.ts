@@ -2,9 +2,9 @@ import { defineStore } from "pinia";
 // Interfaces
 import { product } from "../components/card/interface/card"
 interface cart {
-    total: number;
+    total: Number;
     products: product[];
-    tax: number;
+    tax: Number;
     
 }
 
@@ -25,7 +25,7 @@ export const cardStore = defineStore("shoppingCart", {
                 console.log(error)
             }
         },
-        deleteProduct(key: number): void {
+        deleteProduct(key: Number): void {
             try {
                 // Delete product 
                 this.products.splice(key, 1).concat(this.products.slice(this.products.length));
