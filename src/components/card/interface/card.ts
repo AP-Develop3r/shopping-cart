@@ -1,6 +1,7 @@
 export interface product {
     id: number
     name: string;
+    description?: string
     price: number;
-    url: object | string |any;  
+    url: string;  
 }

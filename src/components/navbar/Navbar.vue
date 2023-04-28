@@ -22,45 +22,27 @@
                 </span>
                 <template #dropdown>
                     <el-dropdown-menu style="width: 250px; padding: 8px;">
-                        <el-dropdown-item v-for="(item, index) in shoppingCart.products" :key="index" :icon="Plus">
+                        <el-dropdown-item v-for="(item, index) in shoppingCart.products" :key="index" >
                             <div class="flex justify-between items-center w-full">
                                 <div class="flex-col w-1/4">
-                          
-                                        <el-avatar :size="40" src="https://empty" @error="errorHandler">
-                                            <img
-                                                :src="item.url" />
-                                        </el-avatar>
-                      
+                                    <el-avatar :size="40" >
+                                        <img :src="item.url" />
+                                    </el-avatar>
                                 </div>
-
                                 <div class="flex justify-evenly w-3/5">
                                     <p class="text-lg">{{ item.name }} </p>
                                     <p class="text-lg"> {{ `$ ${item.price}` }}</p>
-                                    
                                 </div>
                                 <div class="w-1/12">
-                                       <el-icon color="red"  size="20" class="pt-2 text-right">
+                                    <el-icon color="red" size="20" class="pt-2 text-right">
                                         <CloseBold />
                                     </el-icon>
                                 </div>
-                             
                             </div>
-
-
                         </el-dropdown-item>
-
                     </el-dropdown-menu>
                 </template>
             </el-dropdown>
-
-
-
-
-
-
-
-
-
         </el-menu-item>
     </el-menu>
 </template>
@@ -83,4 +65,5 @@ const shoppingCart = cardStore();
 <style scoped>
 .flex-grow {
     flex-grow: 1;
-}</style>
+}
+</style>
